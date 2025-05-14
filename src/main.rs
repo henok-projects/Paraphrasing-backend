@@ -89,16 +89,21 @@ async fn paraphrase_text(request: web::Json<AIRequest>) -> Result<impl Responder
 async fn main() -> std::io::Result<()> {
     dotenv::dotenv().ok();
 
-    let port = std::env::var("PORT").unwrap_or_else(|_| "8080".to_string());
+    let port = std::env::var("PORT").unwrap_or_else(|_| "1000".to_string());
     let addr = format!("0.0.0.0:{}", port);
     println!("Starting server at http://{}", addr);
 
     HttpServer::new(|| {
         let cors = Cors::default()
-            .allowed_origin("https://paraphrasing-frontend.vercel.app/")
+            .allowed_origin("https://paraphrasing-frontend.vercel.app")
             .allowed_origin("http://localhost:3000")
-            .allowed_methods(vec!["GET", "POST"])
-            .allowed_headers(vec!["Content-Type", "Authorization"])
+            .allowed_headers(vec![
+                        header::AUTHORIZATION,
+                        header::ACCEPT,
+                        header::CONTENT_TYPE,
+                    ])
+            .allowed_methods(vec!["GET", "POST", "OPTIONS"])
+            .supports_credentials()
             .max_age(3600);
 
         App::new()
