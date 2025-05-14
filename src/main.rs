@@ -95,7 +95,7 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(|| {
         let cors = Cors::default()
-            .allowed_origin("https://ai-poem-generator-frontend-rg4i.vercel.app/")
+            .allowed_origin("https://paraphrasing-frontend.vercel.app/")
             .allowed_origin("http://localhost:3000")
             .allowed_methods(vec!["GET", "POST"])
             .allowed_headers(vec!["Content-Type", "Authorization"])

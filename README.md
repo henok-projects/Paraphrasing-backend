@@ -54,6 +54,8 @@ Create a .env file in the backend root with:
 - Frontend will run on: http://localhost:3000
 - Backend API will run on: http://localhost:8080
 
+### Production on Render: https://paraphrasing-backend.onrender.com
+
 ## 🌐 API Endpoints
 #### Endpoints with Request and Response format
 - /generate-poem	POST	{ prompt: string }	{ content: string }
