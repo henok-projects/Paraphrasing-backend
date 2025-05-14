@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: poem-backend
+    env: rust
+    plan: free
+    buildCommand: 'cargo build --release'
+    startCommand: 'cargo run --release'
+    envVars:
+      - key: OPENAI_API_KEY
+        value: eUZHpBneEw0Wbtxry72A1TLPJ9FlFkIe

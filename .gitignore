@@ -1,0 +1,13 @@
+# Rust specific
+/target
+**/*.rs.bk
+
+# Environment files
+.env
+.env.*
+*.env
+secrets.toml
+Secrets*.toml
+
+# Shuttle deployment files
+.shuttle*
